@@ -9,12 +9,12 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
     if id:
         try:
-            url = "localhost"  # TODO: Update with appropriate MongoDB connection information
+            url = "mongodb://dodcosmosdb:Ca8Zzs7pPUVORVXY3ZeJfIc5xaf0YRjBPz4x0V3SvLe08orfiVtKqrOsVVQS13wY1jLr64Uv23DwACDbLXcY8Q==@dodcosmosdb.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@dodcosmosdb@"  # TODO: Update with appropriate MongoDB connection information
             client = pymongo.MongoClient(url)
-            database = client['azure']
+            database = client['dodcosmosdbdatabase']
             collection = database['advertisements']
             
-            query = {'_id': ObjectId(id)}
+            query = {'_id': str(id)}
             result = collection.delete_one(query)
             return func.HttpResponse("")
 
