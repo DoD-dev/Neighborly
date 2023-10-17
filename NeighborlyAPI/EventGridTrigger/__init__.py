@@ -3,8 +3,8 @@ import logging
 
 import azure.functions as func
 
+def main(event: func.EventGridEvent):
 
-def main(event: func.EventHubEvent):
     result = json.dumps({
         'id': event.id,
         'data': event.get_json(),
@@ -13,4 +13,4 @@ def main(event: func.EventHubEvent):
         'event_type': event.event_type,
     })
 
-    logging.info('Python EventGrid trigger processed an event: %s', result)
+    logging.info('Python EventGrid trigger processed an event:')

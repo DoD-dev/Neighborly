@@ -2,11 +2,14 @@
   "scriptFile": "__init__.py",
   "bindings": [
     {
-      "type": "eventHubTrigger",
+      "type": "eventGridTrigger",
       "name": "event",
-      "direction": "in",
-      "eventHubName": "dodeventhub",
-      "connection": "dodeventhubconnection"
+      "direction": "in"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
     }
   ]
 }
